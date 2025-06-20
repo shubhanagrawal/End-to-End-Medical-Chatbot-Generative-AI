@@ -1,59 +1,93 @@
-# End-to-end-Medical-Chatbot-Generative-AI
 
+# End-to-End-Medical-Chatbot-Generative-AI
 
-# How to run?
-### STEPS:
+## 🔧 How to Run?
 
-Clone the repository
+### 🧪 Local Setup (Using Conda)
+
+#### STEP 01 – Clone the Repository
 
 ```bash
-Project repo: https://github.com/
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
 ```
-### STEP 01- Create a conda environment after opening the repository
+
+#### STEP 02 – Create and Activate Conda Environment
 
 ```bash
 conda create -n medibot python=3.10 -y
-```
-
-```bash
 conda activate medibot
 ```
 
+#### STEP 03 – Install Python Dependencies
 
-### STEP 02- install the requirements
 ```bash
 pip install -r requirements.txt
 ```
 
+#### STEP 04 – Configure API Keys
 
-### Create a `.env` file in the root directory and add your Pinecone & openai credentials as follows:
+Create a `.env` file in the root directory and add your Pinecone & OpenAI credentials:
 
 ```ini
-PINECONE_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-OPENAI_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+PINECONE_API_KEY="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+OPENAI_API_KEY="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 ```
 
+#### STEP 05 – Store Embeddings to Pinecone
 
 ```bash
-# run the following command to store embeddings to pinecone
 python store_index.py
 ```
 
+#### STEP 06 – Run the App
+
 ```bash
-# Finally run the following command
 python app.py
 ```
 
-Now,
+Then open:
+
 ```bash
-open up localhost:
+localhost:5000
 ```
 
+---
 
-### Techstack Used:
+## 🐳 Docker Setup (Recommended for Deployment)
 
-- Python
-- LangChain
-- Flask
-- GPT
-- Pinecone
+### STEP 01 – Build the Docker Image
+
+```bash
+docker build -t medibot .
+```
+
+### STEP 02 – Run the Docker Container
+
+```bash
+docker run -d -p 5000:5000 --env-file .env medibot
+```
+
+* Make sure your `.env` file is in the same directory as the Dockerfile.
+
+### STEP 03 – Access the Application
+
+Visit:
+
+```
+http://localhost:5000
+```
+
+---
+
+## 🛠 Tech Stack
+
+* **Python**
+* **LangChain**
+* **Flask**
+* **GPT (OpenAI)**
+* **Pinecone**
+* **Docker**
+
+---
+
